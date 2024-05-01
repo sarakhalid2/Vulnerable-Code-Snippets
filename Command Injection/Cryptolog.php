@@ -23,17 +23,17 @@ else if($opt=='add')
 }
 else if($opt=='check')
 {
-  echo cLogshares::fTestFileshare("/mnt/logsource_".$lsid."_".$sharetype);
+  htmlentities( cLogshares::fTestFileshare("/mnt/logsource_".$lsid."_".$sharetype));
 }
 else if($opt=='mount')
 {
   cLogshares::fMountFileshareOnly($dbConn,$lsid,$sharetype);
-  echo cLogshares::fTestFileshare("/mnt/logsource_".$lsid."_".$sharetype);
+  htmlentities( cLogshares::fTestFileshare("/mnt/logsource_".$lsid."_".$sharetype));
 }
 
 function fTestFileshare($sharefolder)
 {
   $output = shell_exec('sudo /opt/cryptolog/scripts/testmountpoint.sh '.$sharefolder);
   return trim($output);
-}
+}ٍٍ
 ?>
